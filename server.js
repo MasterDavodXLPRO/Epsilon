@@ -15,14 +15,14 @@ client.on("ready", () => {
 
 client.on("guildMemberAdd", (member) => {
   console.log(`Nuevo usuario:  ${member.user.username} se ha unido a ${member.guild.name}.`);
-  var canal = client.channels.get('631957754072006667'); 
+  var canal = client.channels.get('630433535295094795'); 
   canal.send(`${member.user}, Bienvenido a EpsilonMC Server. Usa el comando *ip para ver la ip.`);
   
 });
 
 client.on("guildMemberRemove", (member) => {
   console.log(`Un usuario menos:  ${member.user.username} se a ido del servidor ${member.guild.name}.`);
-  var canal = client.channels.get('631957754072006667'); 
+  var canal = client.channels.get('630433535295094795'); 
   canal.send(`${member.user}, Ha salido del servidor.`);
   
 });
