@@ -53,11 +53,11 @@ client.on("message", (message) => {
             },
             {
               name: "**__Comandos de Usuario:__**",
-              value: "Los comandos de usuario son: *ip, *staff, *help. (Mas proximamente)"
+              value: "Los comandos de usuario son: *ip, *staff, *help, *report. (Mas proximamente)"
             },
             {
               name: "**__Comandos Staff:__**",
-              value: "Proximamente..."
+              value: "Los comandos de staff sin: *ban, *kick. (Mas Proximamente)"
             }
           ],
           timestamp: new Date(),
