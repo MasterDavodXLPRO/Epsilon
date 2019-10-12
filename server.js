@@ -167,7 +167,7 @@ if(command === 'ban'){
 } else
 
 if(command === 'report'){
-  let channel = client.channels.get('631957754072006667'); 
+  let channel = client.channels.get('630144106080895012'); 
   let user = message.author;
   let reporte = args.join(' ');
   if(!reporte) return message.channel.send(`:grey_exclamation: | **Envia un reporte o dudas con: *report [reporte]**`)
