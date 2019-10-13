@@ -1,9 +1,6 @@
 const Discord = require("discord.js");
 const  client = new Discord.Client();
 const config = require("./config.json");
-const args = message.content.slice(prefix.length).trim().split(/ +/g);
-const command = args.shift().toLowerCase();
-
 client.on("ready", () => {
    console.log("Conectado!");
 
@@ -33,9 +30,9 @@ client.on("guildMemberRemove", (member) => {
 var prefix = config.prefix;
 
 client.on("message", (message) => {
+  const amount = args.join(' ');
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  const amount = args.join(' ');
  
 // Mensajes sin permiso para todos:
 
