@@ -15,14 +15,14 @@ client.on("ready", () => {
 
 client.on("guildMemberAdd", (member) => {
   console.log(`Nuevo usuario:  ${member.user.username} se ha unido a ${member.guild.name}.`);
-  var canal = client.channels.get('631957754072006667'); 
+  var canal = client.channels.get('630433535295094795'); 
   canal.send(`${member.user}, Bienvenido a EpsilonMC Server. Usa el comando *ip para ver la ip.`);
   
 });
 
 client.on("guildMemberRemove", (member) => {
   console.log(`Un usuario menos:  ${member.user.username} se a ido del servidor ${member.guild.name}.`);
-  var canal = client.channels.get('631957754072006667'); 
+  var canal = client.channels.get('630433535295094795'); 
   canal.send(`${member.user}, Ha salido del servidor.`);
   
 });
@@ -141,7 +141,7 @@ if(command === 'kick' ){
      message.guild.member(user).kick(razon);
      message.channel.send(`**${user.username}**, fue pateado del servidor, razón: ${razon}.`);
      console.log(`Usuario Pateado:  ${user.username} pateado por: ${razon} Autor del Pateo: ${member}.`);
-     var canal = client.channels.get('631957754072006667'); 
+     var canal = client.channels.get('632763877817581570'); 
      canal.send(`**__KICKEO__**`);
      canal.send(`User: ${user.username}`);
      canal.send(`Razon: ${razon}`);
@@ -167,7 +167,7 @@ if(command === 'ban'){
      message.guild.member(user).ban(razon);
      message.channel.send(`**${user.username}**, fue baneado del servidor, razón: ${razon}.`);
      console.log(`Usuario Pateado:  ${user.username} pateado por: ${razon} Autor del Pateo: ${member}.`);
-     var canal = client.channels.get('631957754072006667'); 
+     var canal = client.channels.get('632763877817581570'); 
      canal.send(`**__BANEO__**`);
      canal.send(`User: ${user.username}`);
      canal.send(`Razon: ${razon}`);
@@ -277,5 +277,4 @@ if(command === 'sorteo'){
   message.channel.send('Afortunado: **'+ message.guild.members.random().user+'**');
 }  
 });
-
 client.login(process.env.BOT_TOKEN);
