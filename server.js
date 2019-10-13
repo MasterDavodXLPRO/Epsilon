@@ -245,33 +245,6 @@ if(command === 'clear'){
 })
 } else
 
-if(command === 'buscar'){
-  const YouTube = require('youtube-node');
-  let youTube = new YouTube();
-
-  youTube.setKey('AIzaSyBmdLdN_JFzBUOlgdWU8Zrrr6SXPp0VlkM');
-
-
-  if(!args) return  message.channel.send('Debe proporcionar algo para buscar');
-  message.channel.send(':arrows_counterclockwise: buscando..!')
-  .then(m => {
-      youTube.search(args.join(' '), 2, function(err, result){
-          if(err){
-              return console.log(err); 
-
-         }
-          if(result.items[0]["id"].videoId == undefined){
-              return message.channel.send('¡No se han encontrado resultados!');
-
-          } else{
-              let link = `https://www.youtube.com/watch?v=${result.items[0]["id"].videoId}`
-             m.edit(link);
-
-          }
-     })
-  })
-} else
-
 if(command === 'sorteo'){
   message.channel.send('Afortunado: **'+ message.guild.members.random().user+'**');
 }  
