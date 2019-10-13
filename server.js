@@ -15,14 +15,14 @@ client.on("ready", () => {
 
 client.on("guildMemberAdd", (member) => {
   console.log(`Nuevo usuario:  ${member.user.username} se ha unido a ${member.guild.name}.`);
-  var canal = client.channels.get('630433535295094795'); 
+  var canal = client.channels.get('631957754072006667'); 
   canal.send(`${member.user}, Bienvenido a EpsilonMC Server. Usa el comando *ip para ver la ip.`);
   
 });
 
 client.on("guildMemberRemove", (member) => {
   console.log(`Un usuario menos:  ${member.user.username} se a ido del servidor ${member.guild.name}.`);
-  var canal = client.channels.get('630433535295094795'); 
+  var canal = client.channels.get('631957754072006667'); 
   canal.send(`${member.user}, Ha salido del servidor.`);
   
 });
@@ -53,11 +53,11 @@ client.on("message", (message) => {
             },
             {
               name: "**__Comandos de Usuario:__**",
-              value: "Los comandos de usuario son: *ip, *staff, *help, *report. (Mas proximamente)"
+              value: "Los comandos de usuario son: *ip, *staff, *help. (Mas proximamente)"
             },
             {
               name: "**__Comandos Staff:__**",
-              value: "Los comandos de staff sin: *ban, *kick. (Mas Proximamente)"
+              value: "Proximamente..."
             }
           ],
           timestamp: new Date(),
@@ -131,6 +131,7 @@ if(command === 'kick' ){
   let permiso = message.member.hasPermission("KICK_MEMBERS");
   let user = message.mentions.users.first();
   let razon = args.slice(1).join(' ');
+  let member = message.author;
 
   if (message.member.hasPermission("KICK_MEMBERS")){ 
    if (message.mentions.users.size < 1) return message.reply('Debe mencionar a alguien.').catch(console.error);
@@ -139,6 +140,12 @@ if(command === 'kick' ){
  
      message.guild.member(user).kick(razon);
      message.channel.send(`**${user.username}**, fue pateado del servidor, razón: ${razon}.`);
+     console.log(`Usuario Pateado:  ${user.username} pateado por: ${razon} Autor del Pateo: ${member}.`);
+     var canal = client.channels.get('631957754072006667'); 
+     canal.send(`**__KICKEO__**`);
+     canal.send(`User: ${user.username}`);
+     canal.send(`Razon: ${razon}`);
+     canal.send(`Autor: ${member}`);
   } else
     message.channel.send('Tu no puedes patear a usuarios.')
     .then(m => {
@@ -150,14 +157,21 @@ if(command === 'ban'){
 
   let user = message.mentions.users.first();
   let razon = args.slice(1).join(' ');
+  let member = message.author;
 
   if (message.member.hasPermission("BAN_MEMBERS")){ 
    if (message.mentions.users.size < 1) return message.reply('Debe mencionar a alguien.').catch(console.error);
-   if(!razon) return message.channel.send('Escriba un razón, `*ban @username [razón]`');
+   if(!razon) return message.channel.send('Escriba una razón, `*ban @username [razón]`');
    if (!message.guild.member(user).bannable) return message.reply('No puedo banear al usuario mencionado.');
 
      message.guild.member(user).ban(razon);
      message.channel.send(`**${user.username}**, fue baneado del servidor, razón: ${razon}.`);
+     console.log(`Usuario Pateado:  ${user.username} pateado por: ${razon} Autor del Pateo: ${member}.`);
+     var canal = client.channels.get('631957754072006667'); 
+     canal.send(`**__BANEO__**`);
+     canal.send(`User: ${user.username}`);
+     canal.send(`Razon: ${razon}`);
+     canal.send(`Autor: ${member}`);
   } else
     message.channel.send('Tu no puedes banear a usuarios.')
     .then(m => {
@@ -167,7 +181,7 @@ if(command === 'ban'){
 } else
 
 if(command === 'report'){
-  let channel = client.channels.get('630144106080895012'); 
+  let channel = client.channels.get('631957754072006667'); 
   let user = message.author;
   let reporte = args.join(' ');
   if(!reporte) return message.channel.send(`:grey_exclamation: | **Envia un reporte o dudas con: *report [reporte]**`)
@@ -217,7 +231,7 @@ if(command === 'clear'){
          message.channel.send(`Listo, borre los ${cantidadm} mensajes :ok_hand:`).then(m => m.delete(20000))
      }).catch(e => {
           switch(e.message){
-             case("You can only bulk delete messages that are under 14 days old."):{
+             case("Solo puedes banear mensajes de menos de 14 dias."):{
                   message.channel.send("Solo puedo borrar mensajes con menos de 2 semanas de antigüedad")
               }
              //aqui ire poniendo mas mensajes a medida que se me ocurran o vea en el canal de ayuda
@@ -228,10 +242,40 @@ if(command === 'clear'){
         }
     })
 })
-}  
+} else
 
+//Videos de youtube node :)
+if(command === 'buscar'){
+  const YouTube = require('youtube-node');
+  let youTube = new YouTube();
+
+  youTube.setKey('AIzaSyBmdLdN_JFzBUOlgdWU8Zrrr6SXPp0VlkM');
+
+
+  if(!args) return  message.channel.send('Debe proporcionar algo para buscar');
+  message.channel.send(':arrows_counterclockwise: buscando..!')
+  .then(m => {
+      youTube.search(args.join(' '), 2, function(err, result){
+          if(err){
+              return console.log(err); 
+
+         }
+          if(result.items[0]["id"].videoId == undefined){
+              return message.channel.send('¡No se han encontrado resultados!');
+
+          } else{
+              let link = `https://www.youtube.com/watch?v=${result.items[0]["id"].videoId}`
+             m.edit(link);
+
+          }
+     })
+  })
+} else
+
+//termina videos de youtube node.
 if(command === 'sorteo'){
   message.channel.send('Afortunado: **'+ message.guild.members.random().user+'**');
 }  
 });
+
 client.login(process.env.BOT_TOKEN);
