@@ -1,5 +1,34 @@
 {
-    "token":"NjMyNTY3OTIwMzIwMzE1Mzkz.XaHv0A.aFCpuhOhnDSeMnuMUHmbdl3pZa4",
-    "prefix":"*",
-    "IdOwner":"489449466844282920"           
+  
+    "token":"NzEyNjkzODMwNDMyMDYzNTg4.XsVR4Q.YqplyWPZVsaJQ7NT1HdWxDl7__I",
+    "prefix": "-",
+    "canalbienvenidas":"720041095647592458",
+    "msgbienvenidas":"true",
+    "msgbienvenidap":" es nuev@ en el servidor.",
+    "canalsalidas":"720041096272543755",
+    "msgsalidas":"true",
+    "msgsalidasp":" por desgracia a salido del servidor!",
+    "canallogs":"720041110772252762",
+    "canalcomandos": "720041104275144934",
+    "name":"GibsonClub Network",
+    "roledefault": "720040993126350971",
+    "canalsugerencias": "720041103214248050",
+    "everyone": "320881812211499009",
+    "mods": "720040982904832010",
+    "helpers": "720040983135387682",
+    "soporte": "715155059620577391",
+    "canalgiveways": "720041098973806703",
+    "canalniveles": "720041102484177056",
+    "ownerid": "489449466844282920",
+    "users": "720040993126350971",
+    "canaljuegos": "720041112848302151",
+    "ytapikey":"AIzaSyAP4Eu8EM772d9ELW7bHTrFhdVrP23MpdM",
+    "defaultSettings": {
+      "prefix": "-",
+      "ratelimit": false,
+      "djonly": false,
+      "djrole": "dj",
+      "maxqueuelength": 20
+    }
+   
 }
